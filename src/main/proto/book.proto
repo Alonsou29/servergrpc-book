@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "grpc.server.server.g";
+option java_multiple_files = true;
+
+service BookService {
+  rpc findByName(BookId) returns (BookObject) {}
+}
+
+message BookId {
+  int64 id = 1;
+}
+
+message BookObject {
+  int64 id = 1;
+  string title = 2;
+}
