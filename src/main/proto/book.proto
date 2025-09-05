@@ -5,6 +5,7 @@ option java_multiple_files = true;
 
 service BookService {
   rpc findByName(BookId) returns (BookObject) {}
+  rpc allBooks(Empty) returns (BookList){}
 }
 
 message BookId {
@@ -14,4 +15,13 @@ message BookId {
 message BookObject {
   int64 id = 1;
   string title = 2;
+  int64 pageCount = 3;
+}
+
+message Empty{
+
+}
+
+message BookList{
+  repeated BookObject book = 1;
 }
